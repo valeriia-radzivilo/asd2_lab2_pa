@@ -1,23 +1,9 @@
 package ArrWork;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.IntStream;
 
 public class ArrWork {
-    public static void printArr(String[][] arr, int n) {
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if(arr[i][j]==null)
-                    arr[i][j]="#";
-                System.out.print(arr[i][j]);
-            }
-            System.out.println();
-        }
-        System.out.println("____________________________");
-    }
 
     public static String[][] create_matr(int[] arr, int n)
     {
@@ -105,23 +91,17 @@ public class ArrWork {
         return result;
     }
 
-    public static int[] addtoArr(int n, int arr[], int x)
+    public static int[] addtoArr(int amount_to_add, int arr[])
     {
-        int i;
-
-        // create a new array of size n+1
-        int newarr[] = new int[n + 1];
-
-        // insert the elements from
-        // the old array into the new array
-        // insert all elements till n
-        // then insert x at n+1
-        for (i = 0; i < n; i++)
-            newarr[i] = arr[i];
-
-        newarr[n] = x;
-
-        return newarr;
+        int[] new_arr = new int[arr.length+amount_to_add];
+        for(int i =0; i< new_arr.length; i++)
+        {
+            if(i<arr.length)
+                new_arr[i]=arr[i];
+            else
+                new_arr[i] = 0;
+        }
+        return new_arr;
     }
 
     public static boolean check_if_linked_are_the_same(LinkedList<Integer>a, LinkedList<Integer>b)
