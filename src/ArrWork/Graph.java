@@ -7,6 +7,18 @@ public class Graph {
     private int V;   // No. of vertices
     private LinkedList<Integer> adj[]; //Adjacency Lists
 
+    public int graph_size() {
+        int size_gr=0;
+
+        for (int i = 0; i < V; i++) {
+            if (!adj[i].isEmpty())
+                size_gr=i;
+            else
+                i=V;
+        }
+        return size_gr;
+        }
+
 
     public int get_size(int number)
     {
@@ -28,7 +40,13 @@ public class Graph {
 
     public void print_graph()
     {
-        System.out.println(Arrays.toString(adj));
+        for(int i =0; i< V;i++) {
+            if(!adj[i].isEmpty())
+                System.out.print(adj[i]);
+            else
+                i = V;
+        }
+        System.out.println();
     }
 
     // Constructor

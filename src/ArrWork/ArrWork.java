@@ -105,4 +105,42 @@ public class ArrWork {
         return result;
     }
 
+    public static int[] addtoArr(int n, int arr[], int x)
+    {
+        int i;
+
+        // create a new array of size n+1
+        int newarr[] = new int[n + 1];
+
+        // insert the elements from
+        // the old array into the new array
+        // insert all elements till n
+        // then insert x at n+1
+        for (i = 0; i < n; i++)
+            newarr[i] = arr[i];
+
+        newarr[n] = x;
+
+        return newarr;
+    }
+
+    public static boolean check_if_linked_are_the_same(LinkedList<Integer>a, LinkedList<Integer>b)
+    {
+        int counter_check =0;
+        if(a.size()==b.size())
+        {
+            for(int i =0; i< a.size();i++)
+            {
+                if(a.get(i)==b.get(i))
+                    counter_check++;
+            }
+            if(counter_check==a.size()-1)
+                return true;
+
+        }
+        else
+            return false;
+        return false;
+    }
+
 }

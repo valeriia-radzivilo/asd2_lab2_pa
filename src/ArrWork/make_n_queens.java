@@ -11,7 +11,7 @@ public class make_n_queens {
 
         System.out.println("Initial task: ");
         ArrWork.create_matr(initial_placement,n);
-        Graph gr = new Graph(n*n);
+        Graph gr = new Graph((int) Math.pow(n,n));
         Searches.fill_graph(gr,n,initial_placement);
         int[] result = Searches.find_result(gr,n);
         return result;
