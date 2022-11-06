@@ -101,7 +101,7 @@ public class ArrWork {
         Random random = new Random();
         int[]result = new int[n];
         for(int i = 0; i <n; i++)
-            result[i]=random.nextInt(8);
+            result[i]=random.nextInt(n);
         return result;
     }
 

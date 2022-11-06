@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 public class Main {
        public static void main(String args[]) {
            int n =8;
-            int [] result = make_n_queens.make_n_queens(n,true, new int[]{3, 5, 2, 1, 1, 1, 7, 1});
+            int [] result = make_n_queens.make_n_queens(n,true, new int[]{2, 1, 1, 0});
            System.out.println("Result: ");
            ArrWork.create_matr(result,n);
        }
