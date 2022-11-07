@@ -99,7 +99,7 @@ public class ArrWork {
             if(i<arr.length)
                 new_arr[i]=arr[i];
             else
-                new_arr[i] = 0;
+                new_arr[i] = 1;
         }
         return new_arr;
     }
