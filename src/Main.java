@@ -8,8 +8,10 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 public class Main {
        public static void main(String args[]) {
            int n =8;
-            int [] result = make_n_queens.make_n_queens(n,false , new int[]{3,6,2,3,0,5,6,7});
-           System.out.println("Result: ");
+           int [] not_rand_arr = new int[]{7, 5, 5, 2, 5, 1, 5, 3};
+            int [] result = make_n_queens.make_n_queens(n,true ,not_rand_arr );
+
+            System.out.println("Result: ");
            ArrWork.create_matr(result,n);
        }
 

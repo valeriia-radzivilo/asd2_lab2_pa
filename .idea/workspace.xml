@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5db01f37-fddf-457b-929f-ed2f1e08b1b8" name="Changes" comment="finalna huina po bfs">
+    <list default="true" id="5db01f37-fddf-457b-929f-ed2f1e08b1b8" name="Changes" comment="test updates">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ArrWork/ArrWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ArrWork/ArrWork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ArrWork/F2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ArrWork/F2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ArrWork/make_n_queens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ArrWork/make_n_queens.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +72,7 @@
       <workItem from="1667747685669" duration="13661000" />
       <workItem from="1667819051104" duration="7504000" />
       <workItem from="1667853186529" duration="10716000" />
-      <workItem from="1667917560734" duration="4331000" />
+      <workItem from="1667917560734" duration="13476000" />
     </task>
     <task id="LOCAL-00001" summary="bfs">
       <created>1667749340691</created>
@@ -113,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667921776988</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="test updates">
+      <created>1667921992976</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1667921992976</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,15 +148,16 @@
     <MESSAGE value="playing with stages" />
     <MESSAGE value="huina" />
     <MESSAGE value="finalna huina po bfs" />
-    <option name="LAST_COMMIT_MESSAGE" value="finalna huina po bfs" />
+    <MESSAGE value="test updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="test updates" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ArrWork/Searches.java</url>
-          <line>65</line>
-          <option name="timeStamp" value="18" />
+          <url>file://$PROJECT_DIR$/src/ArrWork/F2.java</url>
+          <line>6</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

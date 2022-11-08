@@ -82,6 +82,17 @@ public class ArrWork {
         return 0;
     }
 
+    public static int check_repeats_in_arr(int[] arr, int value)
+    {
+        int counter =0;
+        for(int i: arr)
+            if(i == value)
+                counter++;
+        if (counter>1)
+            return counter;
+        return 0;
+    }
+
     public static int[] make_rand_int_arr (int n)
     {
         Random random = new Random();

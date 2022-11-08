@@ -17,6 +17,9 @@ public class make_n_queens {
         else
             k=n-2;
         Graph gr = new Graph((int) Math.pow(n,k));
+        int pairs = F2.F2(initial_placement,n);
+        System.out.println("Pairs F2: ");
+        System.out.println(pairs);
         Searches.fill_graph(gr,n,initial_placement);
         int[] result = Searches.find_result(gr,n);
         return result;
