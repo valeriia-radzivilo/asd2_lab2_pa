@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5db01f37-fddf-457b-929f-ed2f1e08b1b8" name="Changes" comment="playing with stages">
+    <list default="true" id="5db01f37-fddf-457b-929f-ed2f1e08b1b8" name="Changes" comment="huina">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ArrWork/ArrWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ArrWork/ArrWork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ArrWork/Searches.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ArrWork/Searches.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
@@ -70,7 +69,8 @@
       <workItem from="1667642919265" duration="7754000" />
       <workItem from="1667747685669" duration="13661000" />
       <workItem from="1667819051104" duration="7504000" />
-      <workItem from="1667853186529" duration="10692000" />
+      <workItem from="1667853186529" duration="10716000" />
+      <workItem from="1667917560734" duration="4138000" />
     </task>
     <task id="LOCAL-00001" summary="bfs">
       <created>1667749340691</created>
@@ -100,7 +100,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667761380093</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="huina">
+      <created>1667865312828</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1667865312828</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,15 +130,16 @@
     <MESSAGE value="stage 4" />
     <MESSAGE value="available for 4 x 4 field" />
     <MESSAGE value="playing with stages" />
-    <option name="LAST_COMMIT_MESSAGE" value="playing with stages" />
+    <MESSAGE value="huina" />
+    <option name="LAST_COMMIT_MESSAGE" value="huina" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ArrWork/Searches.java</url>
-          <line>73</line>
-          <option name="timeStamp" value="15" />
+          <line>65</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
