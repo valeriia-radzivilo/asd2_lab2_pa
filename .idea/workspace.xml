@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5db01f37-fddf-457b-929f-ed2f1e08b1b8" name="Changes" comment="test updates">
+    <list default="true" id="5db01f37-fddf-457b-929f-ed2f1e08b1b8" name="Changes" comment="F2 working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ArrWork/ArrWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ArrWork/ArrWork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ArrWork/F2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ArrWork/F2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ArrWork/Searches.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ArrWork/Searches.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ArrWork/make_n_queens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ArrWork/make_n_queens.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,21 +32,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/leraz/IdeaProjects/asd2_lab2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "true",
+    "Repository.Attach.Sources": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "extract.method.default.visibility": "private",
+    "last_opened_file_path": "C:/Users/leraz/IdeaProjects/asd2_lab2"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -72,7 +70,9 @@
       <workItem from="1667747685669" duration="13661000" />
       <workItem from="1667819051104" duration="7504000" />
       <workItem from="1667853186529" duration="10716000" />
-      <workItem from="1667917560734" duration="13476000" />
+      <workItem from="1667917560734" duration="14413000" />
+      <workItem from="1668078173114" duration="1887000" />
+      <workItem from="1668160751570" duration="463000" />
     </task>
     <task id="LOCAL-00001" summary="bfs">
       <created>1667749340691</created>
@@ -123,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667921992976</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="F2 working">
+      <created>1667950029059</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1667950029059</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,7 +156,8 @@
     <MESSAGE value="huina" />
     <MESSAGE value="finalna huina po bfs" />
     <MESSAGE value="test updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="test updates" />
+    <MESSAGE value="F2 working" />
+    <option name="LAST_COMMIT_MESSAGE" value="F2 working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

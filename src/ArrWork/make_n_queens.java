@@ -22,6 +22,9 @@ public class make_n_queens {
         System.out.println(pairs);
         Searches.fill_graph(gr,n,initial_placement);
         int[] result = Searches.find_result(gr,n);
+        pairs = F2.F2(result,n);
+        System.out.println("Pairs F2 after replacement: ");
+        System.out.println(pairs);
         return result;
     }
 }
