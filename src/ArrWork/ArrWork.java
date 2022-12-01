@@ -61,9 +61,9 @@ public class ArrWork {
         return result_to_print;
     }
 
-    public static List<Integer> array_to_list(int []arr)
+    public static ArrayList<Integer> array_to_list(int []arr)
     {
-        List<Integer> answer = new ArrayList<>();
+        ArrayList<Integer> answer = new ArrayList<>();
         for (int j : arr) {
             answer.add(j);
         }
@@ -71,27 +71,7 @@ public class ArrWork {
         return answer;
     }
 
-    public static int find_closest_in_list(ArrayList<Integer>list, int value)
-    {
-        int min_dist =  value*value;
-        for (Integer integer : list) {
-            if (Math.abs(integer - value) < min_dist) {
-                return integer;
-            }
-        }
-        return 0;
-    }
 
-    public static int check_repeats_in_arr(int[] arr, int value)
-    {
-        int counter =0;
-        for(int i: arr)
-            if(i == value)
-                counter++;
-        if (counter>1)
-            return counter;
-        return 0;
-    }
 
     public static int[] make_rand_int_arr (int n)
     {
@@ -100,6 +80,18 @@ public class ArrWork {
         for(int i = 0; i <n; i++)
             result[i]=random.nextInt(n);
         return result;
+    }
+
+    public static int[] arrlist_to_arr(ArrayList<Integer>arrlist)
+    {
+        int[] answer = new int[arrlist.size()];
+        int iter =0;
+        for(int i: arrlist) {
+            answer[iter] = i;
+            iter++;
+        }
+        return answer;
+
     }
 
     public static int[] addtoArr(int amount_to_add, int arr[])
@@ -115,23 +107,5 @@ public class ArrWork {
         return new_arr;
     }
 
-    public static boolean check_if_linked_are_the_same(LinkedList<Integer>a, LinkedList<Integer>b)
-    {
-        int counter_check =0;
-        if(a.size()==b.size())
-        {
-            for(int i =0; i< a.size();i++)
-            {
-                if(a.get(i)==b.get(i))
-                    counter_check++;
-            }
-            if(counter_check==a.size()-1)
-                return true;
-
-        }
-        else
-            return false;
-        return false;
-    }
 
 }
