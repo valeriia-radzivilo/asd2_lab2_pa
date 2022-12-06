@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5db01f37-fddf-457b-929f-ed2f1e08b1b8" name="Changes" comment="strashno duzhe strashno">
+    <list default="true" id="5db01f37-fddf-457b-929f-ed2f1e08b1b8" name="Changes" comment="BFS ready">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ArrWork/ArrWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ArrWork/ArrWork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ArrWork/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ArrWork/Node.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ArrWork/make_n_queens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ArrWork/make_n_queens.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +83,7 @@
       <workItem from="1670062559939" duration="6746000" />
       <workItem from="1670244673804" duration="754000" />
       <workItem from="1670269037570" duration="1190000" />
-      <workItem from="1670328480436" duration="1087000" />
+      <workItem from="1670328480436" duration="3326000" />
     </task>
     <task id="LOCAL-00001" summary="bfs">
       <created>1667749340691</created>
@@ -158,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669927396303</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="BFS ready">
+      <created>1670329673730</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1670329673730</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,25 +191,21 @@
     <MESSAGE value="F2 working" />
     <MESSAGE value="clearing" />
     <MESSAGE value="strashno duzhe strashno" />
-    <option name="LAST_COMMIT_MESSAGE" value="strashno duzhe strashno" />
+    <MESSAGE value="BFS ready" />
+    <option name="LAST_COMMIT_MESSAGE" value="BFS ready" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ArrWork/make_n_queens.java</url>
-          <line>150</line>
+          <line>104</line>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Main.java</url>
           <line>28</line>
           <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ArrWork/make_n_queens.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="53" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

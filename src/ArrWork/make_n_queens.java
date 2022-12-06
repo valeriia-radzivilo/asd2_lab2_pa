@@ -3,6 +3,7 @@ package ArrWork;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class make_n_queens {
     public static int[] make_n_queens(int n, boolean isRand, int[] notrand) throws IOException {
@@ -20,11 +21,10 @@ public class make_n_queens {
         ArrayList<Integer> init_list = ArrWork.array_to_list(initial_placement);
         Tree tree = new Tree(new Node(init_list,0));
         tree.make_tree(tree);
-        ArrayList<Integer> answer = BFS(tree);
-//        FileWriter rbfs_res = new FileWriter("rbfs_res.txt");
-//        ArrayList<Integer>answer = RBFS(tree, tree.getRoot(), rbfs_res);
-//        if (answer==null) answer = RBFS(tree, tree.getRoot(), rbfs_res);
-//        rbfs_res.close();
+//        ArrayList<Integer> answer = BFS(tree);
+        ArrayList<Node> min_conflicts = new ArrayList<>();
+        ArrayList<Tree> trees_in_mem = new ArrayList<>();
+        ArrayList<Integer> answer = RBFS(tree,min_conflicts,trees_in_mem,0);
 
         return ArrWork.arrlist_to_arr(answer);
     }
@@ -33,49 +33,6 @@ public class make_n_queens {
     static ArrayList<Integer> BFS(Tree tree)
     {
         ArrayList<Integer> answer = new ArrayList<>();
-//        answer = check_every_child(tree.getRoot().getChildren());
-//        if(answer!=null) return answer;
-//        for(int i =0; i<8;i++) {
-//            answer =check_every_child(tree.getRoot().getChildren().get(i).getChildren());
-//            if(answer!=null) return answer;
-//            for(int j =0; j<8;j++) {
-//                answer =check_every_child(tree.getRoot().getChildren().get(i).getChildren().get(j).getChildren());
-//                if(answer!=null) return answer;
-//                for(int a =0; a<8;a++) {
-//                    answer =check_every_child(tree.getRoot().getChildren().get(i).getChildren().get(j).getChildren().get(a).getChildren());
-//                    if(answer!=null) return answer;
-//                    for(int b =0; b<8;b++) {
-//                        answer =check_every_child(tree.getRoot().getChildren().get(i).getChildren().get(j).getChildren().get(a).getChildren().get(b).getChildren());
-//                        if(answer!=null) return answer;
-//                        for(int c =0; c<8;c++) {
-//                            answer =check_every_child(tree.getRoot().getChildren().get(i).getChildren().get(j).getChildren().get(a).getChildren().get(b).getChildren().get(c).getChildren());
-//                            if(answer!=null) return answer;
-//                            for(int d =0; d<8;d++) {
-//                                answer =check_every_child(tree.getRoot().getChildren().get(i).getChildren().get(j).getChildren().get(a).getChildren().get(b).getChildren().get(c).getChildren().get(d).getChildren());
-//                                if(answer!=null) return answer;
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        }
-
-//        answer = check_every_child(tree.getRoot().getChildren());
-//       ArrayList<ArrayList<Node>> checked_children = new ArrayList<>();
-//       checked_children.add(tree.getRoot().getChildren());
-//       for(int i =0; i <8;i++)
-//       {
-//           ArrayList<Node> checked_child = checked_children.get(checked_children.size()-1);
-//           for (int s =0; s<8;s++)
-//           {
-//
-//               checked_children.add(checked_child.get(i).getChildren());
-//               answer = check_every_child(checked_child);
-//               if(answer!=null) return answer;
-//           }
-//           i=0;
-//       }
-
         answer = check_every_child(tree.getRoot().getChildren());
         if(answer==null) {
 
@@ -107,16 +64,13 @@ public class make_n_queens {
     static ArrayList<Integer> check_every_child(ArrayList<Node> children_to_check)
     {
         ArrayList<Integer> check = null;
-        for( Node ch : children_to_check){
             check = check_children(children_to_check);
             if (check != null) return check;
-        }
         return check;
     }
 
     static ArrayList<Integer> check_children (ArrayList<Node>children)
     {
-//        System.out.println(children.get(0).get_col_list());
         for(Node child:children)
         {
             if(!child.visited) {
@@ -147,44 +101,85 @@ public class make_n_queens {
     }
 
 
-    static ArrayList<Integer> RBFS(Tree tree, Node lastNode, FileWriter rbfs_res) throws IOException {
-        if(lastNode!=null) {
-            ArrayList<Integer> answer = new ArrayList<>();
-            ArrayList<Node> lessConflicts = new ArrayList<>();
-            ArrayList<Node> lessers = new ArrayList<>(choose_less_conflict_in_list(lastNode.getChildren()));
-            if (!lessers.contains(null)) {
-                for (Node l : lessers) {
-                    rbfs_res.write(l.get_col_list().toString());
-                    rbfs_res.write(Integer.toString(l.getConflicts()) + "\n");
-                    if (l.getConflicts() == 0)
-                    {
-                        System.out.println("FOUND");
-                        return l.get_col_list();
-                    }
-                    else {
-                        ArrayList<Node> new_lessers = new ArrayList<>(choose_less_conflict_in_list(l.getChildren()));
-                        for (Node n_l : new_lessers) {
-                            answer = RBFS(tree,n_l, rbfs_res);
-                            if(answer!=null)
-                                return answer;
-                        }
+    static ArrayList<Integer> RBFS(Tree tree, ArrayList<Node>min_conflicts, ArrayList<Tree> trees_in_mem, int iter) {
+//        if(lastNode!=null) {
+//            ArrayList<Integer> answer = new ArrayList<>();
+//            ArrayList<Node> lessConflicts = new ArrayList<>();
+//            ArrayList<Node> lessers = new ArrayList<>(choose_less_conflict_in_list(lastNode.getChildren()));
+//            if (!lessers.contains(null)) {
+//                for (Node l : lessers) {
+//                    rbfs_res.write(l.get_col_list().toString());
+//                    rbfs_res.write(Integer.toString(l.getConflicts()) + "\n");
+//                    if (l.getConflicts() == 0)
+//                    {
+//                        System.out.println("FOUND");
+//                        return l.get_col_list();
+//                    }
+//                    else {
+//                        ArrayList<Node> new_lessers = new ArrayList<>(choose_less_conflict_in_list(l.getChildren()));
+//                        for (Node n_l : new_lessers) {
+//                            answer = RBFS(tree,n_l, rbfs_res);
+//                            if(answer!=null)
+//                                return answer;
+//                        }
+//
+//                    }
+//                }
+//            }
+//            return answer;
+//        }
 
-                    }
-                }
+        ArrayList<Integer>answer =new ArrayList<>();
+        Node start = choose_less_conflict_in_list(tree.getRoot().getChildren());
+        if(iter==0)
+        {
+            if(start.getConflicts()==0)
+                return start.get_col_list();
+            min_conflicts.add(start);
+            Tree new_tree = new Tree(start);
+            trees_in_mem.add(new_tree);
+            RBFS(new_tree,min_conflicts,trees_in_mem,iter++);
+        }
+        else {
+            int min_start = start.getConflicts();
+            if(min_start ==0)
+                return start.get_col_list();
+            if (find_min_coflicts(min_conflicts).getConflicts() >= min_start) {
+                min_conflicts.add(start);
+                Tree new_tree = new Tree(start);
+                trees_in_mem.add(new_tree);
+                RBFS(new_tree,min_conflicts,trees_in_mem,iter++);
             }
-            return answer;
+            else {
+                Tree new_tree = trees_in_mem.get(trees_in_mem.size()-1);
+                RBFS(new_tree,min_conflicts,trees_in_mem,iter++);
+
+            }
         }
 
-
-
-        return null;
+        return answer;
     }
 
 
-    static ArrayList<Node> choose_less_conflict_in_list(ArrayList<Node> nodes)
+    static Node find_min_coflicts(ArrayList<Node> nodes)
+    {
+        Node min_node = null;
+        int minimum = 100000000;
+        for(Node n: nodes)
+        {
+            if(n.getConflicts()<minimum)
+            {
+                min_node = n;
+                minimum = n.getConflicts();
+            }
+        }
+        return  min_node;
+    }
+
+
+    static Node choose_less_conflict_in_list(ArrayList<Node> nodes)
     {
         int min = 10000;
-        ArrayList<Node> answer = new ArrayList<>();
         Node f_ans = null;
         for(Node n: nodes)
         {
@@ -196,18 +191,7 @@ public class make_n_queens {
 
             }
         }
-        answer.add(f_ans);
-        for(Node n: nodes)
-        {
-            if(n.getConflicts()==min&&n!=f_ans)
-            {
-                n.setVisited(true);
-                answer.add(n);
-
-            }
-        }
-
-        return answer;
+        return f_ans;
     }
 
 }
