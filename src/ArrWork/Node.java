@@ -7,16 +7,23 @@ public class Node {
     private final ArrayList<Integer> col_list;
     private final int depth;
     private final ArrayList<Node> children ;
+    int amount_of_conflicts;
 
     boolean visited = false;
 
     Node(ArrayList<Integer> col_list, int depth){
         this.col_list = col_list;
         this.children = new ArrayList<>();
-
         this.depth = depth;
+        this.amount_of_conflicts = F2.F2(ArrWork.arrlist_to_arr(col_list),8);
+
+
     }
 
+    public int getConflicts ()
+    {
+        return this.amount_of_conflicts;
+    }
     public void setVisited(boolean val)
     {
         visited = val;

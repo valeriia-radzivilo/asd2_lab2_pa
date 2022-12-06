@@ -38,6 +38,22 @@ public class ArrWork {
         return true;
     }
 
+    static int check_placed_not_right(ArrayList<Integer> arr)
+    {
+        int checker =0;
+        int[] already_placed = new int[8];
+        int i =0;
+        for(int a : arr)
+        {
+            if(place(a,i,already_placed)&&a!=0) {
+                checker++;
+            }
+            already_placed[i] = a;
+            i++;
+        }
+        return checker;
+    }
+
     public static boolean check_in_arr(LinkedList<Integer> arr, int toCheckValue)
     {
         return arr.contains(toCheckValue);
@@ -107,5 +123,19 @@ public class ArrWork {
         return new_arr;
     }
 
+    static int amount_of_duplicates_in_arrlist(ArrayList<Integer> arr, int depth)
+    {
+        ArrayList<Integer> checked = new ArrayList<>();
+        ArrayList<Integer>duplicates = new ArrayList<>();
+        for(int i =0; i<depth;i++)
+        {
+            int a = arr.get(i);
+            if(!checked.contains(a))
+                checked.add(a);
+            else
+                duplicates.add(a);
+        }
+        return duplicates.size();
+    }
 
 }
