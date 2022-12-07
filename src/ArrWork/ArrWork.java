@@ -138,4 +138,22 @@ public class ArrWork {
         return duplicates.size();
     }
 
+    static void print_arr_list(ArrayList<Node> list)
+    {
+        for(Node n : list) {
+            System.out.print(n.get_col_list() + " - " + n.getConflicts());
+        }
+
+        System.out.println();
+    }
+
+    static String make_node_arr_list_string(ArrayList<Node> list)
+    {
+        String answer = "";
+        for(Node n : list) {
+            answer+=n.get_col_list() + " - " + n.getConflicts();
+        }
+        answer+='\n';
+        return answer;
+    }
 }

@@ -1,12 +1,14 @@
 package ArrWork;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 public class make_n_queens {
-    public static int[] make_n_queens(int n, boolean isRand, int[] notrand) throws IOException {
+    public static int[] make_n_queens(int n, boolean isRand, int[] notrand, int method) throws IOException {
         int [ ] initial_placement = new int[n];
         if(isRand)
             initial_placement = ArrWork.make_rand_int_arr(n);
@@ -21,12 +23,26 @@ public class make_n_queens {
         ArrayList<Integer> init_list = ArrWork.array_to_list(initial_placement);
         Tree tree = new Tree(new Node(init_list,0));
         tree.make_tree(tree);
-//        ArrayList<Integer> answer = BFS(tree);
-        ArrayList<Node> min_conflicts = new ArrayList<>();
-        ArrayList<Tree> trees_in_mem = new ArrayList<>();
-        ArrayList<Integer> answer = RBFS(tree,min_conflicts,trees_in_mem,0);
+        int[] answer = new int[8];
+        if(method==0)
+        {
+            ArrayList<Integer> answer_bfs = BFS(tree);
+            answer = ArrWork.arrlist_to_arr(answer_bfs);
+        }
 
-        return ArrWork.arrlist_to_arr(answer);
+        else {
+            ArrayList<Node> min_conflicts = new ArrayList<>();
+            ArrayList<Tree> trees_in_mem = new ArrayList<>();
+            File f = new File("rbfs.txt");
+            FileWriter wr = new FileWriter(f);
+            ArrayList<Integer> answer_rbfs = null;
+            answer_rbfs = RBFS(wr, tree, min_conflicts, trees_in_mem, 0, tree, 0, answer_rbfs);
+            wr.close();
+            answer = ArrWork.arrlist_to_arr(answer_rbfs);
+
+        }
+
+        return answer;
     }
 
 
@@ -101,79 +117,86 @@ public class make_n_queens {
     }
 
 
-    static ArrayList<Integer> RBFS(Tree tree, ArrayList<Node>min_conflicts, ArrayList<Tree> trees_in_mem, int iter) {
-//        if(lastNode!=null) {
-//            ArrayList<Integer> answer = new ArrayList<>();
-//            ArrayList<Node> lessConflicts = new ArrayList<>();
-//            ArrayList<Node> lessers = new ArrayList<>(choose_less_conflict_in_list(lastNode.getChildren()));
-//            if (!lessers.contains(null)) {
-//                for (Node l : lessers) {
-//                    rbfs_res.write(l.get_col_list().toString());
-//                    rbfs_res.write(Integer.toString(l.getConflicts()) + "\n");
-//                    if (l.getConflicts() == 0)
-//                    {
-//                        System.out.println("FOUND");
-//                        return l.get_col_list();
-//                    }
-//                    else {
-//                        ArrayList<Node> new_lessers = new ArrayList<>(choose_less_conflict_in_list(l.getChildren()));
-//                        for (Node n_l : new_lessers) {
-//                            answer = RBFS(tree,n_l, rbfs_res);
-//                            if(answer!=null)
-//                                return answer;
-//                        }
-//
-//                    }
-//                }
-//            }
-//            return answer;
-//        }
-
-        ArrayList<Integer>answer =new ArrayList<>();
-        Node start = choose_less_conflict_in_list(tree.getRoot().getChildren());
-        if(iter==0)
+    static ArrayList<Integer> RBFS(FileWriter wr, Tree tree, ArrayList<Node>min_conflicts, ArrayList<Tree> trees_in_mem, int iter, Tree primary_tree, int counter, ArrayList<Integer> answer) throws IOException {
+        if(answer!=null)
+            return answer;
+        if(counter<1000)
         {
-            if(start.getConflicts()==0)
-                return start.get_col_list();
-            min_conflicts.add(start);
-            Tree new_tree = new Tree(start);
-            trees_in_mem.add(new_tree);
-            RBFS(new_tree,min_conflicts,trees_in_mem,iter++);
-        }
-        else {
-            int min_start = start.getConflicts();
-            if(min_start ==0)
-                return start.get_col_list();
-            if (find_min_coflicts(min_conflicts).getConflicts() >= min_start) {
-                min_conflicts.add(start);
-                Tree new_tree = new Tree(start);
+            if (trees_in_mem.size()>1&&counter%100==0)
+            {
+                Tree new_tree = trees_in_mem.get(0);
+                trees_in_mem = new ArrayList<>();
                 trees_in_mem.add(new_tree);
-                RBFS(new_tree,min_conflicts,trees_in_mem,iter++);
+                Node min = min_conflicts.get(0);
+                min_conflicts= new ArrayList<>();
+                min_conflicts.add(min);
+                answer = RBFS(wr,new_tree,min_conflicts,trees_in_mem,iter=1, primary_tree,counter++,answer);
+                if(answer!=null)
+                    return answer;
             }
-            else {
-                Tree new_tree = trees_in_mem.get(trees_in_mem.size()-1);
-                RBFS(new_tree,min_conflicts,trees_in_mem,iter++);
+            if(counter%200==0)
+            {
+                trees_in_mem = new ArrayList<>();
+                min_conflicts = new ArrayList<>();
+                answer = RBFS(wr,primary_tree,min_conflicts,trees_in_mem,iter =0,primary_tree,counter+=1,answer);
+                if(answer!=null)
+                    return answer;
+            }
+            Node start = choose_less_conflict_in_list(tree.getRoot().getChildren());
+            if(start!=null && start.amount_of_conflicts==0)
+            {
+                System.out.println("FOUND");
 
+                return answer= start.get_col_list();
             }
+            else{
+                if(start!=null &&(start.getDepth()==0 || start.getConflicts()<= find_min_node(min_conflicts).getConflicts()) ) {
+                    Tree new_tree = new Tree(start);
+                    trees_in_mem.add(new_tree);
+                    min_conflicts.add(start);
+
+                    answer = RBFS(wr,new_tree,min_conflicts,trees_in_mem,iter+=1,primary_tree,counter+=1,answer);
+                    if(answer!=null)
+                        return answer;
+                }
+                else if(trees_in_mem.size()>1){
+                    trees_in_mem.remove(trees_in_mem.size()-1);
+                    min_conflicts.remove(min_conflicts.size()-1);
+                    Tree new_tree = trees_in_mem.get(trees_in_mem.size()-1);
+
+                    answer = RBFS(wr, new_tree, min_conflicts,trees_in_mem,iter-=1,primary_tree,counter+=1,answer);
+                    if(answer!=null)
+                        return answer;
+                }
+                else {
+                    counter =200;
+                    answer = RBFS(wr, null, min_conflicts,trees_in_mem,iter-=1,primary_tree,counter,answer);
+                }
+            }
+            if(answer!=null)
+                return answer;
         }
+
 
         return answer;
     }
 
 
-    static Node find_min_coflicts(ArrayList<Node> nodes)
+    static Node find_min_node(ArrayList<Node> nodes)
     {
-        Node min_node = null;
-        int minimum = 100000000;
+        int min = 10000;
+        Node f_ans = null;
         for(Node n: nodes)
         {
-            if(n.getConflicts()<minimum)
+            if(n.getConflicts()<min)
             {
-                min_node = n;
-                minimum = n.getConflicts();
+                min = n.getConflicts();
+                f_ans=n;
+
             }
         }
-        return  min_node;
+        if(f_ans!=null) f_ans.setVisited(true);
+        return f_ans;
     }
 
 
@@ -186,11 +209,11 @@ public class make_n_queens {
             if(n.getConflicts()<min&&!n.visited)
             {
                 min = n.getConflicts();
-                n.setVisited(true);
                 f_ans=n;
 
             }
         }
+        if(f_ans!=null) f_ans.setVisited(true);
         return f_ans;
     }
 

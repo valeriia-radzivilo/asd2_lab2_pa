@@ -15,9 +15,7 @@ public class Node {
         this.col_list = col_list;
         this.children = new ArrayList<>();
         this.depth = depth;
-        this.amount_of_conflicts = F2.F2(ArrWork.arrlist_to_arr(col_list),8);
-
-
+        this.amount_of_conflicts = F2.F2(ArrWork.arrlist_to_arr(col_list),8)+ArrWork.amount_of_duplicates_in_arrlist(col_list,depth)*10;
     }
 
     public int getConflicts ()
