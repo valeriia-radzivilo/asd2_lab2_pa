@@ -1,11 +1,10 @@
 import ArrWork.*;
-import java.io.IOException;
 import java.util.Objects;
 import java.util.Scanner;
 
 
 public class Main {
-       public static void main(String args[]) throws IOException {
+       public static void main(String args[]){
            int n =8;
            int [] not_rand_arr = new int[]{3,6,2,3,0,5,6,7};
 

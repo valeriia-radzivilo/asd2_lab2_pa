@@ -4,13 +4,12 @@ import ArrWork.ArrWork;
 import ArrWork.make_n_queens;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class IfBoardCorrectTest {
     @Test
-    void ifBoardCorrect() throws IOException {
+    void ifBoardCorrect(){
         int n=8;
         int []expected = {2,5,7,0,3,6,4,1};
 
