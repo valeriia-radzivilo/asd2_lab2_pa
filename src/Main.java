@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class Main {
        public static void main(String args[]){
            int n =8;
-           int [] not_rand_arr = new int[]{3,6,2,3,0,5,6,7};
 
            int [] initial_placement = ArrWork.make_rand_int_arr(n);
            System.out.println("Initial task: ");
