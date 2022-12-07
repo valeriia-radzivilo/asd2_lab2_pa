@@ -1,7 +1,6 @@
 package ArrWork;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Node {
     private final ArrayList<Integer> col_list;

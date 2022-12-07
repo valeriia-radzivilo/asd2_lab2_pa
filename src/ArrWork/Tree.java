@@ -1,7 +1,4 @@
 package ArrWork;
-
-import javax.naming.InsufficientResourcesException;
-import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import java.util.ArrayList;
 
 public class Tree{
